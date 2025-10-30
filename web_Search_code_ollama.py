@@ -1,21 +1,20 @@
-# import ollama
 import os
 
 os.environ["OLLAMA_API_KEY"] = "4d169e51df3c4acd9ceffc25a9798ecc.SzxaICfxVVvaMFg1iaUBuwUF"
-# response = ollama.web_fetch('https://www.5dariyanews.com/news/468590-Axis-Bank-opens-branch-at-Doda')
-# print(response)
-# print('done')
-# Install requirements first (inside your venv):
-# pip install ollama pydantic
 
 from ollama import chat, web_fetch
 from pydantic import BaseModel
 import json
+import pandas as pd
+
+file = pd.ExcelFile(r'D:\PythonScripts\AuthorNameAXIS\Untitled spreadsheet.xlsx')
+file_data = file.parse('23 Oct - 28 Oct')
+file_data = file_data[file_data['Resource type'] == 'Mass media']
+
+
 
 #list of the URLS
-urls = [
-   "https://www.bizzbuzz.news/markets/stock-market/bulls-take-charge-on-dalal-street-on-fresh-fii-inflows-1374928"
-]
+urls = list(file_data['URL'])
 
 
 
