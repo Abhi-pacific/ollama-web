@@ -1,7 +1,4 @@
 import os
-
-os.environ["OLLAMA_API_KEY"] = "4d169e51df3c4acd9ceffc25a9798ecc.SzxaICfxVVvaMFg1iaUBuwUF"
-
 from ollama import chat, web_fetch
 from pydantic import BaseModel
 import json
